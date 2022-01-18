@@ -3,6 +3,7 @@
 <head>
 <title>RamazonGaniyev</title>
 <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="stylesheet" href="index.css">
@@ -13,6 +14,7 @@
 <script>(function(w,d){!function(e,t,r,a,s){e[r]=e[r]||{},e[r].executed=[],e.zaraz={deferred:[]};var n=t.getElementsByTagName("title")[0];e[r].c=t.cookie,n&&(e[r].t=t.getElementsByTagName("title")[0].text),e[r].w=e.screen.width,e[r].h=e.screen.height,e[r].j=e.innerHeight,e[r].e=e.innerWidth,e[r].l=e.location.href,e[r].r=t.referrer,e[r].k=e.screen.colorDepth,e[r].n=t.characterSet,e[r].o=(new Date).getTimezoneOffset(),//
 e[s]=e[s]||[],e.zaraz._preTrack=[],e.zaraz.track=(t,r)=>e.zaraz._preTrack.push([t,r]),e[s].push({"zaraz.start":(new Date).getTime()});var i=t.getElementsByTagName(a)[0],o=t.createElement(a);o.defer=!0,o.src="/cdn-cgi/zaraz/s.js?"+new URLSearchParams(e[r]).toString(),i.parentNode.insertBefore(o,i)}(w,d,"zarazData","script","dataLayer");})(window,document);</script>
 <script src="//code-eu1.jivosite.com/widget/os6e1zzT8L" async></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 </head>
 <body>
 <nav class="navbar ftco-navbar-light">
@@ -56,7 +58,7 @@ e[s]=e[s]||[],e.zaraz._preTrack=[],e.zaraz.track=(t,r)=>e.zaraz._preTrack.push([
 <div class="col-lg-6 d-flex align-items-end justify-content-end">
 <div class="carousel-about">
 <div class="item">
-<img src="images/exampleOffigure-removebg-preview.png" class="img-fluid" alt="Colorlib">
+<img src="images/exampleOffigure.jpg" class="img-fluid" alt="Colorlib">
 </div>
 </span>
 
@@ -105,8 +107,37 @@ e[s]=e[s]||[],e.zaraz._preTrack=[],e.zaraz.track=(t,r)=>e.zaraz._preTrack.push([
 <section class="contact-form">
 <div>
   <center><h1>Contact me</h1></center>
-
 </div>
+<div></div>
+</section>
+
+<!-- ========================================== -->
+
+                <!--Motivation section -->  
+
+<!-- ========================================== -->
+
+<section class="motivation-form">
+  <div>
+    <center><h1>Motivation by Ramazon Ganiyev</h1></center>
+  </div>
+     <div id="container">
+            <h1>
+            <i class="fas fa-quote-left"></i>
+            <span class="quote" id="quote">jjdhhdhdhhdhd</span>
+            <i class="fas fa-quote-right"></i>
+            </h1>
+            <p class="author" id="author">pzer0man</p>
+            
+            <hr/>
+            <div class="buttons">
+                <a class="twitter" id="tweet" data-size="large" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                
+                <!--add an onclick event on 'next quote' button-->
+                <button class="next" onclick="getNewQuote()">Next quote</button>
+            </div>
+        </div>
+
 </section>
 
 <script src="js/bootstrap.bundle.min.js"></script>
@@ -116,7 +147,6 @@ e[s]=e[s]||[],e.zaraz._preTrack=[],e.zaraz.track=(t,r)=>e.zaraz._preTrack.push([
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script>eval(mod_pagespeed_InhIjlmdOI);</script>
 <script>eval(mod_pagespeed_9RIZcYJeRX);</script>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -125,6 +155,49 @@ e[s]=e[s]||[],e.zaraz._preTrack=[],e.zaraz.track=(t,r)=>e.zaraz._preTrack.push([
 
   gtag('config', 'UA-23581568-13');
 </script>
+
+<script>
+  const text = document.getElementById("quote");
+const author = document.getElementById("author");
+const tweetButton = document.getElementById("tweet");
+
+const getNewQuote = async () => {
+  //api for quotes
+  var url = "https://type.fit/api/quotes";
+
+  // fetch the data from api
+  const response = await fetch(url);
+  console.log(typeof response);
+  //convert response to json and store it in quotes array
+  const allQuotes = await response.json();
+
+  // Generates a random number between 0 and the length of the quotes array
+  const indx = Math.floor(Math.random() * allQuotes.length);
+
+  //Store the quote present at the randomly generated index
+  const quote = allQuotes[indx].text;
+
+  //Store the author of the respective quote
+  const auth = allQuotes[indx].author;
+
+  if (auth == null) {
+    author = "Anonymous";
+  }
+
+  //function to dynamically display the quote and the author
+  text.innerHTML = quote;
+  author.innerHTML = "~ " + "Ramazon Ganiev" + "~" ;
+
+  //tweet the quote
+  tweetButton.href =
+    "https://www.instagram.com/pzer0man" + quote + " ~ " ;
+};
+
+getNewQuote();
+
+</script>
+
+
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"6c861d1f9f0f0020","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.12.0","si":100}' crossorigin="anonymous"></script>
 </body>
 </html>
