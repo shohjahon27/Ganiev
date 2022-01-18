@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+
+
+/* ================================== */
+
+/* widget-chat */
+
+
+.widget-chat{
+  margin-bottom:120px;
+}
+
+/* ================================== */
+
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
