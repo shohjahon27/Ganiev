@@ -7,10 +7,6 @@
 /* widget-chat */
 
 
-.widget-chat{
-  padding-bottom:220px;
-}
-
 /* ================================== */
 
 
@@ -19,7 +15,7 @@
 }
 .main {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 40px;
 }
 .hamburger {
   position: relative;
@@ -230,6 +226,9 @@ hr {
     box-shadow: 0 10px 10px rgb(0, 196, 230);
 } 
 
+@media (min-width: 668px) {
+    #container {
+      width: 100%; } }
 
 /* ========================================== */
 
